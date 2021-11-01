@@ -1,0 +1,30 @@
+﻿<Application x:Class="MoneFy_MVVM_WPF.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:view="clr-namespace:MoneFy_MVVM_WPF.View"
+             xmlns:viewHome="clr-namespace:MoneFy_MVVM_WPF.View.Home"
+             xmlns:viewTransfer="clr-namespace:MoneFy_MVVM_WPF.View.Transfer"
+             xmlns:viewMTransfer="clr-namespace:MoneFy_MVVM_WPF.ViewModel.Transfer"
+             xmlns:viewM="clr-namespace:MoneFy_MVVM_WPF.ViewModel"
+             xmlns:viewMHome="clr-namespace:MoneFy_MVVM_WPF.ViewModel.Home"
+             xmlns:local="clr-namespace:MoneFy_MVVM_WPF">
+
+    <Application.Resources>
+<!--Ubrali DataTemplate dlya MainViewModel-->
+        <DataTemplate DataType="{x:Type viewMHome:AppBarViewModel}" >
+            <viewHome:AppBarView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewMHome:HomeViewModel}" >
+            <viewHome:HomeView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewMHome:FilterSideBarViewModel}" >
+            <viewHome:FilterSideBarView/>
+        </DataTemplate> 
+        <DataTemplate DataType="{x:Type viewMHome:OptionSideBarViewModel}" >
+            <viewHome:OptionsSideBarView/>
+        </DataTemplate> 
+        <DataTemplate DataType="{x:Type viewMTransfer:TransferViewModel}" >
+            <viewTransfer:TransferView/>
+        </DataTemplate>        
+    </Application.Resources>
+</Application>
