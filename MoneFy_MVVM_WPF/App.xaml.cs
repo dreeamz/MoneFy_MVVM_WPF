@@ -1,6 +1,7 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Messaging;
 using MoneFy_MVVM_WPF.Services;
+using MoneFy_MVVM_WPF.Services.Home;
 using MoneFy_MVVM_WPF.View;
 using MoneFy_MVVM_WPF.ViewModel;
 using MoneFy_MVVM_WPF.ViewModel.Home;
@@ -37,12 +38,13 @@ namespace MoneFy_MVVM_WPF
             Container.RegisterSingleton<INavigationService, NavigationService>();
             Container.RegisterSingleton<IMessenger, Messenger>();
 
-
             Container.RegisterSingleton<MainViewModel>();
             Container.RegisterSingleton<HomeViewModel>();
+
+
+            Container.RegisterSingleton<Navigation>();
             Container.RegisterSingleton<TransferViewModel>();
-            Container.RegisterSingleton<AppBarViewModel>();
-            Container.RegisterSingleton<FilterSideBarViewModel>();
+            Container.RegisterSingleton<AppBarViewModel>();           
             Container.RegisterSingleton<RightSideBarViewModel>();
             Container.RegisterSingleton<LeftSideBarViewModel>();
         }   

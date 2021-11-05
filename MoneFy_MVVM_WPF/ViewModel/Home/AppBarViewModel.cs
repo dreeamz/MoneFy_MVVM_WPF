@@ -19,8 +19,10 @@ namespace MoneFy_MVVM_WPF.ViewModel.Home
         {
             NavigationService = NS;
         }
-        private RelayCommand _toLeftSideBar;
-      
+
+        #region RelayCommands for HomeViewModel Left and Right Bars
+
+        private RelayCommand _toLeftSideBar;      
         public RelayCommand ToLeftSideBar
         {
             get => _toLeftSideBar ??= new RelayCommand(delegate
@@ -28,11 +30,9 @@ namespace MoneFy_MVVM_WPF.ViewModel.Home
                 NavigationService.NavigateTo<LeftSideBarViewModel>(Token.LeftSideBar);                    
                
             });
-        }
+        }        
         
-        
-        private RelayCommand _toRightSideBar;
-      
+        private RelayCommand _toRightSideBar;      
         public RelayCommand ToRightSideBar
         {
             get => _toRightSideBar ??= new RelayCommand(delegate
@@ -41,7 +41,7 @@ namespace MoneFy_MVVM_WPF.ViewModel.Home
                
             });
         }
-
+        #endregion
 
     }
 }

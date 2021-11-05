@@ -92,47 +92,68 @@
                             TextBlock.Foreground="Black"/>
                     </lvc:PieChart.ChartLegend>
                 </lvc:PieChart>
+                
                 <!--Consumption Buttons-->
-                <Button            
-                    Command="{Binding }"
+                <Button        
+                       Command="{Binding }"                    
                        Grid.Row="1"
                        HorizontalAlignment="Center" 
-                       VerticalAlignment="Center" 
-                       FontSize="20"
-                        Height="50"
-                       FontWeight="Heavy"
-                       Content="Sport" 
-                       Background="#FF659E60"/>
+                       VerticalAlignment="Center"                        
+                        Height="70"
+                       FontWeight="Heavy" Background="#FF00C195">
+                    <md:PackIcon 
+                        Kind="Dumbbell"
+                        Width="40" 
+                        Height="50" 
+                        Foreground="White" />
+                </Button>
                 <Button 
                     Command="{Binding }"
                        Grid.Column="1"
-                       Height="50"
+                       Height="70"
                        HorizontalAlignment="Center" 
-                       VerticalAlignment="Center" 
-                       FontSize="25"      
+                       VerticalAlignment="Center"                            
                        FontWeight="Heavy"
-                       Content="Transport" Background="#FF483D5B"/>
+                       Background="#FF483D5B">
+                     <md:PackIcon
+                          Kind="TrainCar" 
+                          Width="40" 
+                          Height="50" 
+                          Foreground="White"/>
+
+                </Button>
                 <Button 
                     Command="{Binding }"
                        Grid.Row="1"
-                       Height="50"
+                       Height="70"
                        Grid.Column="2"
                        HorizontalAlignment="Center" 
-                       VerticalAlignment="Center" 
-                       FontSize="17" 
+                       VerticalAlignment="Center"                        
                        FontWeight="Heavy"                      
-                       Content="Hangout" Background="#FFE21919"/>
+                       Background="#FFE21919">
+                    <md:PackIcon 
+                        Kind="PartyPopper" 
+                        Width="40"                        
+                        Height="50" 
+                        Foreground="White"   />
+                </Button>
                 <Button
                        Command="{Binding }"
                        Grid.Row="2"
-                       Height="50"
+                       Height="70"
+                       Width="70"
                        Grid.Column="1"
                        HorizontalAlignment="Center" 
                        VerticalAlignment="Center" 
                        FontSize="25"
                        FontWeight="Heavy"
-                       Content="Food" Background="#FFB7673A"/>
-
+                       Background="#FFD66B00">
+                    <md:PackIcon 
+                        Kind="Noodles" 
+                        Width="40"                                  
+                        Height="50"
+                        Foreground="White"/>
+                </Button>
             </Grid>
             
             
