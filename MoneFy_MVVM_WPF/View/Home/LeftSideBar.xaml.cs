@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace MoneFy_MVVM_WPF.View.Home
 {
     /// <summary>
-    /// Interaction logic for OptionsSideBarView.xaml
+    /// Interaction logic for LeftSideBar.xaml
     /// </summary>
-    public partial class OptionsSideBarView : UserControl
+    public partial class LeftSideBar : UserControl
     {
-        public OptionsSideBarView()
+        public LeftSideBar()
         {
             InitializeComponent();
         }

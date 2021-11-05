@@ -43,7 +43,8 @@ namespace MoneFy_MVVM_WPF
             Container.RegisterSingleton<TransferViewModel>();
             Container.RegisterSingleton<AppBarViewModel>();
             Container.RegisterSingleton<FilterSideBarViewModel>();
-            Container.RegisterSingleton<OptionSideBarViewModel>();
+            Container.RegisterSingleton<RightSideBarViewModel>();
+            Container.RegisterSingleton<LeftSideBarViewModel>();
         }   
         private void Start<T>()where T : ViewModelBase
         {

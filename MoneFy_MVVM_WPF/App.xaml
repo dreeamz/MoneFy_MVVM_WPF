@@ -11,20 +11,34 @@
 
     <Application.Resources>
 <!--Ubrali DataTemplate dlya MainViewModel-->
-        <DataTemplate DataType="{x:Type viewMHome:AppBarViewModel}" >
-            <viewHome:AppBarView/>
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type viewMHome:HomeViewModel}" >
-            <viewHome:HomeView/>
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type viewMHome:FilterSideBarViewModel}" >
-            <viewHome:FilterSideBarView/>
-        </DataTemplate> 
-        <DataTemplate DataType="{x:Type viewMHome:OptionSideBarViewModel}" >
-            <viewHome:OptionsSideBarView/>
-        </DataTemplate> 
-        <DataTemplate DataType="{x:Type viewMTransfer:TransferViewModel}" >
-            <viewTransfer:TransferView/>
-        </DataTemplate>        
+        <ResourceDictionary>
+            <DataTemplate DataType="{x:Type viewMHome:AppBarViewModel}" >
+                <viewHome:AppBarView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewMHome:HomeViewModel}" >
+                <viewHome:HomeView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewMHome:FilterSideBarViewModel}" >
+                <viewHome:FilterSideBarView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewMHome:LeftSideBarViewModel}" >
+                <viewHome:LeftSideBar/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewMHome:RightSideBarViewModel}" >
+                <viewHome:RightSideBar/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewMTransfer:TransferViewModel}" >
+                <viewTransfer:TransferView/>
+            </DataTemplate>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        
+        
     </Application.Resources>
+    
 </Application>

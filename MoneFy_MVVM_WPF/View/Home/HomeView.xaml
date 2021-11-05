@@ -4,10 +4,175 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MoneFy_MVVM_WPF.View.Home"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"             
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf" 
              mc:Ignorable="d" >
 
-    <StackPanel Height="800" Width="400">
-        <Label Content="HomeView"/>
-        <Button Content="ToTransfer" Command="{Binding ToTransfer}"/>
+    <StackPanel Height="800" Width="400" Background="#FF9C9C98" >
+        <Label Content="MoneFy" Height="50"
+               HorizontalContentAlignment="Center"
+               Foreground="#FFEAFF13"
+               FontSize="30"
+               FontWeight="Bold"
+               Background="Black"
+               />        
+        
+        <!--Grid for AppBar-->
+        <Grid Height="44">
+            <ContentControl Content="{Binding AppBar}"/>
+        </Grid>        
+        
+        
+        <Grid Height="706">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.4*"/>
+                <RowDefinition/>
+                <RowDefinition Height="0.4*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            
+            <!--Balance label-->
+            <Label 
+                VerticalAlignment="Center"
+                FontWeight="Black"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Content="{Binding Balance}"
+                FontSize="40"/>
+            
+            
+            <!--Grids for side bars-->
+            <Grid
+                  x:Name="LeftSideBar" 
+                 Panel.ZIndex="1"
+                  Grid.Row="0" 
+                  Grid.RowSpan="2">
+                <ContentControl Content="{Binding LeftSideBar}"/>
+            </Grid>
+            <Grid 
+                x:Name="RightSideBar" 
+                  Grid.Row="0"
+                  Grid.Column="1"
+                   Panel.ZIndex="1"
+                Grid.RowSpan="2">
+                <ContentControl Content="{Binding RightSideBar}"/>
+            </Grid>
+            
+            
+            <!--Central grid for Piechart and Consumprions-->
+            <Grid Grid.Row="1" Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.4*"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="0.4*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.42*"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="0.5*"/>
+                </Grid.ColumnDefinitions>
+                <!--PieChartAndItsSeries-->
+                <lvc:PieChart  
+                    LegendLocation="Bottom"                                 
+                               Grid.Column="1" Grid.Row="1"
+                               Series="{Binding SeriesCollection}"
+                               Hoverable="True"
+                               InnerRadius="30"                                
+                               Margin="10" 
+                               HoverPushOut="10"
+                               FontSize="20">
+                    <lvc:PieChart.ChartLegend>
+                        <lvc:DefaultLegend
+                            TextBlock.FontSize="15" 
+                          
+                            TextBlock.Foreground="Black"/>
+                    </lvc:PieChart.ChartLegend>
+                </lvc:PieChart>
+                <!--Consumption Buttons-->
+                <Button            
+                    Command="{Binding }"
+                       Grid.Row="1"
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center" 
+                       FontSize="20"
+                        Height="50"
+                       FontWeight="Heavy"
+                       Content="Sport" 
+                       Background="#FF659E60"/>
+                <Button 
+                    Command="{Binding }"
+                       Grid.Column="1"
+                       Height="50"
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center" 
+                       FontSize="25"      
+                       FontWeight="Heavy"
+                       Content="Transport" Background="#FF483D5B"/>
+                <Button 
+                    Command="{Binding }"
+                       Grid.Row="1"
+                       Height="50"
+                       Grid.Column="2"
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center" 
+                       FontSize="17" 
+                       FontWeight="Heavy"                      
+                       Content="Hangout" Background="#FFE21919"/>
+                <Button
+                       Command="{Binding }"
+                       Grid.Row="2"
+                       Height="50"
+                       Grid.Column="1"
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center" 
+                       FontSize="25"
+                       FontWeight="Heavy"
+                       Content="Food" Background="#FFB7673A"/>
+
+            </Grid>
+            
+            
+            <!--bottom buttons-->
+            <Button 
+                Command="{Binding ToTransfer}"
+                FontSize="60"
+                FontWeight="Black"
+                Grid.Row="2"
+                FontStretch="Expanded"
+                Width="120"
+                Height="120" >
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Ellipse Fill="DarkGreen"/>
+                            <ContentPresenter Content="+"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button
+                 Command="{Binding}"
+                Grid.Row="2"                
+                FontSize="60"
+                Grid.Column="1"
+                FontWeight="Black"
+                FontStretch="Expanded"
+                Width="120"
+                Height="120">
+                <Button.Template >
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid     >
+                            <Ellipse Fill="DarkRed"/>
+                            <ContentPresenter Content="-"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            
+        </Grid>
     </StackPanel>
 </UserControl>

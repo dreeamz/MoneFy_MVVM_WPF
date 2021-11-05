@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight;
+using MoneFy_MVVM_WPF.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace MoneFy_MVVM_WPF.Services
 {
     public interface INavigationService
     {
-        public void NavigateTo<T>() where T : ViewModelBase;
+        public void NavigateTo<T>(Token token) where T : ViewModelBase;
+      
     }
 }

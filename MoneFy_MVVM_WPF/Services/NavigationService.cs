@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Messaging;
+using MoneFy_MVVM_WPF.Enums;
 using MoneFy_MVVM_WPF.Messages;
 using System;
 using System.Collections.Generic;
@@ -16,9 +17,11 @@ namespace MoneFy_MVVM_WPF.Services
         {
             messenger = ms;
         }
-        public void NavigateTo<T>() where T : ViewModelBase
+        public void NavigateTo<T>(Token token) where T : ViewModelBase
         {
-            messenger.Send<NavigationMessage>(new NavigationMessage() { ViewModelBase = typeof(T) });
+            messenger.Send<NavigationMessage>(new NavigationMessage() { ViewModelBase = typeof(T) },token);
         }
+
+        
     }
 }

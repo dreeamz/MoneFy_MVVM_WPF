@@ -23,7 +23,7 @@ namespace MoneFy_MVVM_WPF.ViewModel.Transfer
         {
             get => _toHome ??= new RelayCommand(() =>
             {
-                NavigationService.NavigateTo<HomeViewModel>();
+                NavigationService.NavigateTo<HomeViewModel>(Enums.Token.Main);
             });
         }
     }

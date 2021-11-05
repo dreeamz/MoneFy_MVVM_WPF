@@ -5,6 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MoneFy_MVVM_WPF.View"
         mc:Ignorable="d"
-        Title="MainView" Height="816" Width="400">
-    <ContentControl  Content="{Binding CurrentView}"/>
+        Title="MainView" Height="838" Width="415">
+    <ContentControl  Content="{Binding CurrentView}" />
 </Window>

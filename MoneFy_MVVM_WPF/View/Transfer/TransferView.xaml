@@ -5,8 +5,17 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MoneFy_MVVM_WPF.View.Transfer"
              mc:Ignorable="d" >
-    <StackPanel Height="800" Width="400">
-        <Label FontSize="22" Content="TransferView"/>
-        <Button Content="ToHome" Command="{Binding ToHome}"/>
-    </StackPanel>
+    <Grid Height="800" Width="400">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Content="Back" Command="{Binding ToHome}"/>
+    </Grid>
 </UserControl>
