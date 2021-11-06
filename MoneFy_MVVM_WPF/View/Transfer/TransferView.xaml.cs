@@ -24,5 +24,7 @@ namespace MoneFy_MVVM_WPF.View.Transfer
         {
             InitializeComponent();
         }
+
+        
     }
 }

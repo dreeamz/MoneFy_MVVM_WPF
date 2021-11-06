@@ -15,17 +15,18 @@
                FontSize="30"
                FontWeight="Bold"
                Background="Black"
-               />        
-        
+               />
+
         <!--Grid for AppBar-->
         <Grid Height="44">
             <ContentControl Content="{Binding AppBar}"/>
-        </Grid>        
-        
-        
+        </Grid>
+
+
         <Grid Height="706">
+            <!--Main separation of this usercontrol-->
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.4*"/>
+                <RowDefinition Height="0.3*"/>
                 <RowDefinition/>
                 <RowDefinition Height="0.4*"/>
             </Grid.RowDefinitions>
@@ -33,8 +34,8 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            
-            
+
+
             <!--Balance label-->
             <Label 
                 VerticalAlignment="Center"
@@ -43,8 +44,8 @@
                 Grid.ColumnSpan="2"
                 Content="{Binding Balance}"
                 FontSize="40"/>
-            
-            
+
+
             <!--Grids for side bars-->
             <Grid
                   x:Name="LeftSideBar" 
@@ -61,8 +62,8 @@
                 Grid.RowSpan="2">
                 <ContentControl Content="{Binding RightSideBar}"/>
             </Grid>
-            
-            
+
+
             <!--Central grid for Piechart and Consumprions-->
             <Grid Grid.Row="1" Grid.ColumnSpan="2">
                 <Grid.RowDefinitions>
@@ -76,56 +77,53 @@
                     <ColumnDefinition Width="0.5*"/>
                 </Grid.ColumnDefinitions>
                 <!--PieChartAndItsSeries-->
-                <lvc:PieChart  
-                    LegendLocation="Bottom"                                 
+                <lvc:PieChart                                                    
                                Grid.Column="1" Grid.Row="1"
                                Series="{Binding SeriesCollection}"
                                Hoverable="True"
-                               InnerRadius="30"                                
-                               Margin="10" 
+                               InnerRadius="40"                        
                                HoverPushOut="10"
-                               FontSize="20">
-                    <lvc:PieChart.ChartLegend>
-                        <lvc:DefaultLegend
-                            TextBlock.FontSize="15" 
-                          
-                            TextBlock.Foreground="Black"/>
-                    </lvc:PieChart.ChartLegend>
+                               FontSize="25">
                 </lvc:PieChart>
-                
+
                 <!--Consumption Buttons-->
+                
+                <!--Workout-->
                 <Button        
                        Command="{Binding }"                    
                        Grid.Row="1"
                        HorizontalAlignment="Center" 
                        VerticalAlignment="Center"                        
-                        Height="70"
-                       FontWeight="Heavy" Background="#FF00C195">
+                        Height="110"
+                       FontWeight="Heavy" Background="Black">
                     <md:PackIcon 
                         Kind="Dumbbell"
                         Width="40" 
                         Height="50" 
                         Foreground="White" />
                 </Button>
+                <!--Transport-->
                 <Button 
                     Command="{Binding }"
                        Grid.Column="1"
                        Height="70"
+                       Width="110"
                        HorizontalAlignment="Center" 
                        VerticalAlignment="Center"                            
                        FontWeight="Heavy"
                        Background="#FF483D5B">
-                     <md:PackIcon
+                    <md:PackIcon
                           Kind="TrainCar" 
                           Width="40" 
                           Height="50" 
                           Foreground="White"/>
 
                 </Button>
+                <!--Party-->
                 <Button 
                     Command="{Binding }"
                        Grid.Row="1"
-                       Height="70"
+                       Height="110"
                        Grid.Column="2"
                        HorizontalAlignment="Center" 
                        VerticalAlignment="Center"                        
@@ -137,11 +135,12 @@
                         Height="50" 
                         Foreground="White"   />
                 </Button>
+                <!--Food-->
                 <Button
                        Command="{Binding }"
                        Grid.Row="2"
                        Height="70"
-                       Width="70"
+                       Width="110"
                        Grid.Column="1"
                        HorizontalAlignment="Center" 
                        VerticalAlignment="Center" 
@@ -154,9 +153,72 @@
                         Height="50"
                         Foreground="White"/>
                 </Button>
+                <!--Aptek-->
+                <Button        
+                       Command="{Binding }"                    
+                       Grid.Row="0" Grid.Column="0"
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center"                        
+                        Height="70"
+                       FontWeight="Heavy" Background="#FF00C195">
+                    <md:PackIcon 
+                        Kind="HospitalBoxOutline"
+                        Width="40" 
+                        Height="50" 
+                        Foreground="White" />
+                </Button>
+                <!--CellPhone-->
+                <Button 
+                    Command="{Binding }"
+                       Grid.Column="0"  Grid.Row="2"
+                       Height="70"
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center"                            
+                       FontWeight="Heavy"                        
+                       Background="#FF00B5C7">
+                    <md:PackIcon
+                          Kind="CellphoneBasic" 
+                          Width="40" 
+                          Height="50" 
+                          Foreground="White" />
+                </Button>
+                <!--Coat Hanger-->
+                <Button 
+                    Command="{Binding }"
+                       Grid.Row="0"
+                       Grid.Column="2"
+                       Height="70"
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center"                        
+                       FontWeight="Heavy"                      
+                       Background="#FFCA3BFF">
+                    <md:PackIcon 
+                        Kind="CoatHanger" 
+                        Width="40"                        
+                        Height="50" 
+                        Foreground="White"   />
+                </Button>
+                <!--Pets-->
+                <Button
+                       Command="{Binding }"
+                       Grid.Row="2"
+                       Height="70"
+                       Width="70"
+                       Grid.Column="2"
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center" 
+                       FontSize="25"
+                       FontWeight="Heavy"
+                       Background="#FF162453">
+                    <md:PackIcon 
+                        Kind="Owl" 
+                        Width="40"                                  
+                        Height="50"
+                        Foreground="White"/>
+                </Button>
             </Grid>
-            
-            
+
+
             <!--bottom buttons-->
             <Button 
                 Command="{Binding ToTransfer}"
@@ -165,11 +227,11 @@
                 Grid.Row="2"
                 FontStretch="Expanded"
                 Width="120"
-                Height="120" >
+                Height="120" Background="#FF8954E6" >
                 <Button.Template>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Grid>
-                            <Ellipse Fill="DarkGreen"/>
+                            <Ellipse Fill="#FF8202DA"/>
                             <ContentPresenter Content="+"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Grid>
                     </ControlTemplate>
@@ -187,13 +249,13 @@
                 <Button.Template >
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Grid     >
-                            <Ellipse Fill="DarkRed"/>
+                            <Ellipse Fill="#FFAA1B1B"/>
                             <ContentPresenter Content="-"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Grid>
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-            
+
         </Grid>
     </StackPanel>
 </UserControl>

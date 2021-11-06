@@ -5,17 +5,45 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MoneFy_MVVM_WPF.View.Transfer"
              mc:Ignorable="d" >
-    <Grid Height="800" Width="400">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
+    <Grid Height="800" Background="#FF1D1010" Width="400">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
             <RowDefinition Height="0.2*"/>
             <RowDefinition/>
-            <RowDefinition/>
         </Grid.RowDefinitions>
+
         <Button Content="Back" Command="{Binding ToHome}"/>
+        <Label  Grid.Row="1"
+                VerticalAlignment="Bottom" 
+                Foreground="White"
+                Grid.ColumnSpan="2"
+                Content="Put Money in Bank" 
+                FontSize="30" 
+                Background="#FF3E3E3E"/>
+
+        <TextBox Grid.Row="2"
+                 Grid.Column="0"
+                 Grid.ColumnSpan="2"
+                 Height="30"
+                 VerticalAlignment="Top"
+                 FontSize="20"
+                 Foreground="Black"                 
+                 Margin="1,1,0,300" 
+                 Text="{Binding Money,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                 Background="#FFDAD1D1"/>
+        <Button  Command="{Binding Accept}"
+                 Grid.Row="1" 
+                 Width="80" 
+                 Content="Accept"
+                 IsEnabled="{Binding AcptButEnab,Mode=TwoWay}"
+                 VerticalAlignment="Bottom"
+                 Grid.Column="2"/>
     </Grid>
+
+
 </UserControl>

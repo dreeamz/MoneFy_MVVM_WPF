@@ -43,8 +43,6 @@ namespace MoneFy_MVVM_WPF.ViewModel.Home
             set => Set(ref _rightSideBar, value);
         }
         #endregion
-
-
         public SeriesCollection SeriesCollection { get; set; }
 
         public HomeViewModel()
