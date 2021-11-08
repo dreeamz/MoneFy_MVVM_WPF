@@ -27,6 +27,12 @@
             <DataTemplate DataType="{x:Type viewMTransfer:TransferViewModel}" >
                 <viewTransfer:TransferView/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewMTransfer:SubstractViewModel}" >
+                <viewTransfer:SubstractView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewMTransfer:CategoryViewModel}" >
+                <viewTransfer:CategoryView/>
+            </DataTemplate>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />

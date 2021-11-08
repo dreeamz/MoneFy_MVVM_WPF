@@ -17,7 +17,7 @@ namespace MoneFy_MVVM_WPF.Services
         {
             messenger = ms;
         }
-        public void NavigateTo<T>(Token token) where T : ViewModelBase
+        public void NavigateTo<T>(NavToken token) where T : ViewModelBase
         {
             messenger.Send<NavigationMessage>(new NavigationMessage() { ViewModelBase = typeof(T) },token);
         }

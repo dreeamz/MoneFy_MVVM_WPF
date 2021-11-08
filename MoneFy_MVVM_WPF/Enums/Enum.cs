@@ -6,5 +6,6 @@ using System.Threading.Tasks;
 
 namespace MoneFy_MVVM_WPF.Enums
 {
-    public enum Token { Main, RightSideBar, LeftSideBar, Transfer };
+    public enum NavToken { Main, RightSideBar, LeftSideBar, Transfer,Category}
+    public enum AccToken { Add, Substract };
 }

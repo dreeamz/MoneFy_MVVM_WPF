@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Messaging;
+using MoneFy_MVVM_WPF.Model;
 using MoneFy_MVVM_WPF.Services;
 using MoneFy_MVVM_WPF.Services.Home;
 using MoneFy_MVVM_WPF.View;
@@ -36,19 +37,28 @@ namespace MoneFy_MVVM_WPF
             Container = new Container();
 
             Container.RegisterSingleton<INavigationService, NavigationService>();
+            Container.RegisterSingleton<ITransactionService, TransactionService>();
+            Container.RegisterSingleton<IAccountingService, AccountingService>();
             Container.RegisterSingleton<IMessenger, Messenger>();
 
             Container.RegisterSingleton<MainViewModel>();
             Container.RegisterSingleton<HomeViewModel>();
-
+            Container.RegisterSingleton<AppBarViewModel>();
+            Container.RegisterSingleton<TransferViewModel>();
+            Container.RegisterSingleton<SubstractViewModel>();
+            Container.RegisterSingleton<CategoryViewModel>();
 
             Container.RegisterSingleton<Navigation>();
-            Container.RegisterSingleton<TransferViewModel>();
-            Container.RegisterSingleton<AppBarViewModel>();           
+            //models
+            Container.RegisterSingleton<Transaction>();
+            Container.RegisterSingleton<Wallet>();
+
+
+            //not used
             Container.RegisterSingleton<RightSideBarViewModel>();
             Container.RegisterSingleton<LeftSideBarViewModel>();
-        }   
-        private void Start<T>()where T : ViewModelBase
+        }
+        private void Start<T>() where T : ViewModelBase
         {
             MainViewModel viewModel = Container.GetInstance<MainViewModel>();
             viewModel.CurrentView = Container.GetInstance<T>();

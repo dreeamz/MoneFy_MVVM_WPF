@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace MoneFy_MVVM_WPF.Model
 {
-    internal class Transaction
+    public class Transaction
     {
-        public double Money { get; set; }
+        public double Summ { get; set; }
     }
 }

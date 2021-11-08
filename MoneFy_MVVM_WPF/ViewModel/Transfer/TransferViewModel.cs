@@ -1,5 +1,7 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
+using MoneFy_MVVM_WPF.Enums;
+using MoneFy_MVVM_WPF.Model;
 using MoneFy_MVVM_WPF.Services;
 using MoneFy_MVVM_WPF.ViewModel.Home;
 using System;
@@ -15,14 +17,16 @@ namespace MoneFy_MVVM_WPF.ViewModel.Transfer
     public class TransferViewModel : ViewModelBase
     {
         #region Prop and fields
-        private INavigationService NavigationService;
+        private readonly INavigationService NavigationService;
+        private readonly ITransactionService TransactionService;
+        private Transaction transaction;
 
         string _money;
         public string Money
         {
             get => _money;
             set
-            {
+            {                
                 Set(ref _money, value);
                 MoneyChange();
             }
@@ -37,10 +41,13 @@ namespace MoneFy_MVVM_WPF.ViewModel.Transfer
                 Set(ref _acptButEnab, value);
             }
         }
+
         #endregion
-        public TransferViewModel(INavigationService NS)
+        public TransferViewModel(INavigationService NS,ITransactionService TS,Transaction T)
         {
             NavigationService = NS;
+            TransactionService = TS;
+            transaction = T;
         }
 
         //Function to Enable Accept button
@@ -58,12 +65,15 @@ namespace MoneFy_MVVM_WPF.ViewModel.Transfer
 
         #region Commands
 
-        private RelayCommand _putMoney;
-        public RelayCommand PutMoney
+        private RelayCommand _accept;
+        public RelayCommand Accept
         {
-            get => _putMoney ??= new(delegate 
-            { 
-                
+            get => _accept ??= new(delegate 
+            {
+                transaction.Summ = double.Parse(Money);
+                Money = "";
+                TransactionService.Transact(transaction,AccToken.Add);                
+                NavigationService.NavigateTo<HomeViewModel>(NavToken.Main);                
             });
         }
 
@@ -72,7 +82,10 @@ namespace MoneFy_MVVM_WPF.ViewModel.Transfer
         {
             get => _toHome ??= new RelayCommand(() =>
             {
-                NavigationService.NavigateTo<HomeViewModel>(Enums.Token.Main);
+                if (Money != null)
+                    Money = "";
+                NavigationService.NavigateTo<HomeViewModel>(NavToken.Main);
+
             });
         }
         #endregion

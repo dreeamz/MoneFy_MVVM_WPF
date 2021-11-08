@@ -10,7 +10,7 @@ namespace MoneFy_MVVM_WPF.Services
 {
     public interface INavigationService
     {
-        public void NavigateTo<T>(Token token) where T : ViewModelBase;
+        public void NavigateTo<T>(NavToken token) where T : ViewModelBase;
       
     }
 }

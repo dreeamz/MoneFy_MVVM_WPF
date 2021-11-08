@@ -17,7 +17,7 @@ namespace MoneFy_MVVM_WPF.ViewModel
         public MainViewModel(IMessenger ms)
         {
             Messenger = ms;
-            Messenger.Register<NavigationMessage>(this,Token.Main, message =>
+            Messenger.Register<NavigationMessage>(this, NavToken.Main, message =>
             {
                 ViewModelBase viewModel = App.Container.GetInstance(message.ViewModelBase) as ViewModelBase;
                 CurrentView = viewModel;

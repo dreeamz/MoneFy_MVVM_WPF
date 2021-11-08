@@ -27,7 +27,7 @@ namespace MoneFy_MVVM_WPF.ViewModel.Home
         {
             get => _toLeftSideBar ??= new RelayCommand(delegate
             {
-                NavigationService.NavigateTo<LeftSideBarViewModel>(Token.LeftSideBar);                    
+                NavigationService.NavigateTo<LeftSideBarViewModel>(NavToken.LeftSideBar);                    
                
             });
         }        
@@ -37,7 +37,7 @@ namespace MoneFy_MVVM_WPF.ViewModel.Home
         {
             get => _toRightSideBar ??= new RelayCommand(delegate
             {
-                NavigationService.NavigateTo<RightSideBarViewModel>(Token.RightSideBar);                    
+                NavigationService.NavigateTo<RightSideBarViewModel>(NavToken.RightSideBar);                    
                
             });
         }

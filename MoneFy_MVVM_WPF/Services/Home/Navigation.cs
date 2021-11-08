@@ -11,33 +11,47 @@ using System.Threading.Tasks;
 
 namespace MoneFy_MVVM_WPF.Services.Home
 {
-    //for separate services for HomeViewModel constructor
+    //this class was created to separate services from HomeViewModel constructor 
+    //and made it's registration in this class
+    
     public class Navigation
     {
+        #region Fields And Properties
         readonly HomeViewModel homeViewModel;
 
         bool _leftBar = true;
         bool _rightBar = true;
-
-        public Navigation(INavigationService NS, IMessenger IM)
+        #endregion 
+        public Navigation(INavigationService NS, IMessenger IM,IAccountingService AS)
         {
            
             homeViewModel = App.Container.GetInstance<HomeViewModel>();
 
             homeViewModel.NavigationService = NS;
             homeViewModel.Messenger = IM;
+            homeViewModel.accountingService = AS;
 
             #region HomeViewModel registrations
 
-            homeViewModel.Messenger.Register<NavigationMessage>(homeViewModel, Token.LeftSideBar, message =>
+            homeViewModel.Messenger.Register<NavigationMessage>(homeViewModel, NavToken.LeftSideBar, message =>
             {
                 ViewModelBase viewModel = App.Container.GetInstance(message.ViewModelBase) as ViewModelBase;
                 CloseOpenLeftBar(_leftBar, viewModel);
             });
-            homeViewModel.Messenger.Register<NavigationMessage>(this, Token.RightSideBar, message =>
+            homeViewModel.Messenger.Register<NavigationMessage>(homeViewModel, NavToken.RightSideBar, message =>
             {
                 ViewModelBase viewModel = App.Container.GetInstance(message.ViewModelBase) as ViewModelBase;
                 CloseOpenRightBar(_rightBar,viewModel);
+            });
+            homeViewModel.Messenger.Register<TransactionMessage>(homeViewModel,AccToken.Add,message =>
+            {
+                homeViewModel.accountingService.Transact(message.Transaction,AccToken.Add);
+                homeViewModel.Balance = homeViewModel.accountingService.Balance();
+            });
+            homeViewModel.Messenger.Register<TransactionMessage>(homeViewModel,AccToken.Substract,message =>
+            {
+                homeViewModel.accountingService.Transact(message.Transaction,AccToken.Substract);
+                homeViewModel.Balance = homeViewModel.accountingService.Balance();
             });
 
             #endregion
