@@ -116,9 +116,9 @@
                                FontSize="25">
                 </lvc:PieChart>
 
+
+
                 <!--Consumption Buttons-->
-                
-               
                 <!--Transport-->
                 <Button 
                     Command="{Binding }"
@@ -131,11 +131,12 @@
                        Background="#FF483D5B">
                     <md:PackIcon
                           Kind="TrainCar" 
-                          Width="40" 
-                          Height="50" 
+                          Width="70" 
+                          Height="66" 
                           Foreground="White"/>
 
                 </Button>
+
                 <!--Workout-->
                 <Button        
                        Command="{Binding }"                    
@@ -143,13 +144,15 @@
                        HorizontalAlignment="Center" 
                        VerticalAlignment="Center"                        
                         Height="110"
+                        Width="80"
                        FontWeight="Heavy" Background="Black">
                     <md:PackIcon 
                         Kind="Dumbbell"
-                        Width="40" 
-                        Height="50" 
+                        Margin="0,0,0,0"
+                        Width="50"                       
+                        Height="70"
                         Foreground="White" />
-                </Button>                
+                </Button>
                 <!--Food-->
                 <Button
                        Command="{Binding }"
@@ -164,8 +167,8 @@
                        Background="#FFD66B00">
                     <md:PackIcon 
                         Kind="Noodles" 
-                        Width="40"                                  
-                        Height="50"
+                        Width="70"                       
+                        Height="65"
                         Foreground="White"/>
                 </Button>
                 <!--Party-->
@@ -173,6 +176,7 @@
                     Command="{Binding }"
                        Grid.Row="1"
                        Height="110"
+                       Width="80"
                        Grid.Column="2"
                        HorizontalAlignment="Center" 
                        VerticalAlignment="Center"                        
@@ -180,8 +184,8 @@
                        Background="#FFE21919">
                     <md:PackIcon 
                         Kind="PartyPopper" 
-                        Width="40"                        
-                        Height="50" 
+                        Width="50"                       
+                        Height="70" 
                         Foreground="White"   />
                 </Button>
                 <!--Aptek-->
@@ -194,7 +198,7 @@
                        FontWeight="Heavy" Background="#FF00C195">
                     <md:PackIcon 
                         Kind="HospitalBoxOutline"
-                        Width="40" 
+                        Width="50" 
                         Height="50" 
                         Foreground="White" />
                 </Button>
@@ -203,13 +207,14 @@
                     Command="{Binding }"
                        Grid.Column="0"  Grid.Row="2"
                        Height="70"
+                       Width="80"
                        HorizontalAlignment="Center" 
                        VerticalAlignment="Center"                            
                        FontWeight="Heavy"                        
                        Background="#FF00B5C7">
                     <md:PackIcon
                           Kind="CellphoneBasic" 
-                          Width="40" 
+                          Width="50" 
                           Height="50" 
                           Foreground="White" />
                 </Button>
@@ -219,14 +224,15 @@
                        Grid.Row="0"
                        Grid.Column="2"
                        Height="70"
+                       Width="80"
                        HorizontalAlignment="Center" 
                        VerticalAlignment="Center"                        
                        FontWeight="Heavy"                      
                        Background="#FFCA3BFF">
                     <md:PackIcon 
                         Kind="CoatHanger" 
-                        Width="40"                        
-                        Height="50" 
+                        Width="50"                        
+                        Height="60" 
                         Foreground="White"   />
                 </Button>
                 <!--Pets-->
@@ -234,7 +240,7 @@
                        Command="{Binding }"
                        Grid.Row="2"
                        Height="70"
-                       Width="70"
+                       Width="80"
                        Grid.Column="2"
                        HorizontalAlignment="Center" 
                        VerticalAlignment="Center" 
@@ -243,7 +249,7 @@
                        Background="#FF162453">
                     <md:PackIcon 
                         Kind="Owl" 
-                        Width="40"                                  
+                        Width="50"                                  
                         Height="50"
                         Foreground="White"/>
                 </Button>

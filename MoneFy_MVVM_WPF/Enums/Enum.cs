@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MoneFy_MVVM_WPF.Enums
 {
+    public enum ButtonToken { Transport, Sport, Food, Hangout, Aptek, CellPhone, Dress, Pets }
     public enum NavToken { Main, RightSideBar, LeftSideBar, Transfer,Category}
-    public enum AccToken { Add, Substract };
+    public enum AccToken { Add, Substract,
+        Category
+    }
 }

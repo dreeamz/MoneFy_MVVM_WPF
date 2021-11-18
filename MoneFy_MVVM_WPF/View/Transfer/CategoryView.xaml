@@ -4,8 +4,178 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MoneFy_MVVM_WPF.View.Transfer"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" >
-    <Grid Background="#FFA84545" Height="600" Width="400">
-        <Label  FontSize="40" Content="Category"/>
+
+    <Grid Background="Black" Height="500" Width="400">
+
+        <!--Main Separation-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.6*"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <!--Choose Category labes-->
+        <Label  
+            FontSize="40" 
+            Grid.ColumnSpan="2"
+            Background="Black"
+            Foreground="#FFE4E4E4"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Center"
+            Content="Choose Category"/>
+        
+        
+        <!--Consumption Buttons-->
+        <!--Transport-->
+        <Button 
+                 Command="{Binding Accept}"
+                 CommandParameter="Transport"
+                 Grid.Column="0"
+                 Grid.Row="1"
+                 Height="70"
+                 Width="110"
+                 HorizontalAlignment="Center" 
+                 VerticalAlignment="Center"                            
+                 FontWeight="Heavy"
+                 Background="#FF483D5B">
+            <md:PackIcon                
+                 Kind="TrainCar" 
+                 Width="80" 
+                 Height="65"                
+                 Foreground="White"/>
+        </Button>
+        <!--Workout-->
+        <Button        
+                       Command="{Binding Accept}"    
+                        CommandParameter="Sport"
+                       Grid.Row="2"
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center"                        
+                       Height="70"
+                       Width="110"
+                       FontWeight="Heavy" Background="Black">
+            <md:PackIcon 
+                        Kind="Dumbbell"
+                        Width="80" 
+                 Height="65" 
+                        Foreground="White" />
+        </Button>
+        <!--Food-->
+        <Button
+                       Command="{Binding Accept}"
+                      CommandParameter="Food"
+                       Grid.Row="2"
+                       Grid.Column="1"
+                       Height="70"
+                       Width="110"
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center" 
+                       FontSize="25"
+                       FontWeight="Heavy"
+                       Background="#FFD66B00">
+            <md:PackIcon 
+                        Kind="Noodles" 
+                        Width="80" 
+                 Height="65"
+                        Foreground="White"/>
+        </Button>
+        <!--Party-->
+        <Button 
+                         Command="{Binding Accept }"
+                         CommandParameter="Party"
+                       Grid.Row="1"
+                       Height="70"
+                       Width="110"
+                       Grid.Column="2"
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center"                        
+                       FontWeight="Heavy"                      
+                       Background="#FFE21919">
+            <md:PackIcon 
+                        Kind="PartyPopper" 
+                        Width="80" 
+                        Height="65" 
+                        Foreground="White"   />
+        </Button>        
+        <!--Aptek-->
+        <Button        
+                       Command="{Binding Accept }" 
+                      CommandParameter="Aptek"
+                       Grid.Row="3" Grid.Column="0"
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center"                        
+                       Height="70"
+                       Width="110"
+                       FontWeight="Heavy" Background="#FF00C195">
+            <md:PackIcon 
+                        Kind="HospitalBoxOutline"
+                        Width="80" 
+                        Height="65"  
+                        Foreground="White" />
+        </Button>
+        <!--CellPhone-->
+        <Button 
+                       Command="{Binding Accept }" 
+                        CommandParameter="CellPhone"
+                       Grid.Column="1"  Grid.Row="3"
+                       Height="70"
+                       Width="110"
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center"                            
+                       FontWeight="Heavy"                        
+                       Background="#FF00B5C7">
+            <md:PackIcon
+                          Kind="CellphoneBasic" 
+                          Width="80" 
+                          Height="65"
+                          Foreground="White" />
+        </Button>
+        <!--Coat Hanger-->
+        <Button 
+                  Command="{Binding Accept }" 
+                        CommandParameter="Dress"
+                       Grid.Row="4"
+                       Grid.Column="1"
+                       Height="70"
+                       Width="110"
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center"                        
+                       FontWeight="Heavy"                      
+                       Background="#FFCA3BFF">
+            <md:PackIcon 
+                        Kind="CoatHanger" 
+                        Width="80" 
+                        Height="65" 
+                        Foreground="White"   />
+        </Button>
+        <!--Pets-->
+        <Button
+                       Command="{Binding Accept }" 
+                        CommandParameter="Pets"
+                       Grid.Row="4"
+                       Height="70"
+                       Width="110"
+                       Grid.Column="0"
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center" 
+                       FontSize="25"
+                       FontWeight="Heavy"
+                       Background="#FF162453">
+            <md:PackIcon 
+                        Kind="Owl" 
+                        Width="80" 
+                        Height="65"
+                        Foreground="White"/>
+        </Button>
+
+
+
     </Grid>
 </UserControl>

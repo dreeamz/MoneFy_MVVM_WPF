@@ -11,7 +11,8 @@ namespace MoneFy_MVVM_WPF.Services.Home
     public interface IAccountingService
     {
         public string Balance();
-        public void Transact(Transaction transaction, AccToken token);
+        public string Expenses();
+        public void Count(Transaction transaction, AccToken token);
 
     }
 }

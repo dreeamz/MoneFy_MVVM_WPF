@@ -3,6 +3,7 @@ using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Messaging;
 using MoneFy_MVVM_WPF.Enums;
 using MoneFy_MVVM_WPF.Messages;
+using MoneFy_MVVM_WPF.Model;
 using MoneFy_MVVM_WPF.Services;
 using MoneFy_MVVM_WPF.ViewModel.Home;
 using System;
@@ -19,7 +20,9 @@ namespace MoneFy_MVVM_WPF.ViewModel.Transfer
     {
         private readonly IMessenger messanger;
         private readonly INavigationService navigationService;
+        private readonly ITransactionService transactionService;
         private ViewModelBase _categoryView;
+        private Transaction transaction = App.Container.GetInstance<Transaction>();
         public ViewModelBase CategoryView
         {
             get => _categoryView;
@@ -42,15 +45,22 @@ namespace MoneFy_MVVM_WPF.ViewModel.Transfer
                 _check = false;
             }
         }
-        public SubstractViewModel(IMessenger M, INavigationService N)
+        public SubstractViewModel(IMessenger M, INavigationService NS, ITransactionService TS)
         {
             messanger = M;
-            navigationService = N;
+            navigationService = NS;
+            transactionService = TS;
             messanger.Register<NavigationMessage>(this, NavToken.Category, messanger =>
             {
                 ViewModelBase viewModel = App.Container.GetInstance(messanger.ViewModelBase) as ViewModelBase;
                 CloseOpenCategory(this._check, viewModel);
             });
+            messanger.Register<TransactionMessage>(this, AccToken.Substract, messanger =>
+            {
+                Money = "";
+                CategoryView = null;
+            }
+            );
         }
 
         string _money;
@@ -86,8 +96,8 @@ namespace MoneFy_MVVM_WPF.ViewModel.Transfer
             {
                 if (Money != null)
                     Money = "";
+                this.CategoryView = null;
                 navigationService.NavigateTo<HomeViewModel>(NavToken.Main);
-
             });
         }
         private RelayCommand _accept;
@@ -95,7 +105,9 @@ namespace MoneFy_MVVM_WPF.ViewModel.Transfer
         {
             get => _accept ??= new RelayCommand(delegate
             {
-                Money = "";
+
+                transaction.Summ = double.Parse(Money);
+                transactionService.Transact(transaction, AccToken.Category);
                 navigationService.NavigateTo<CategoryViewModel>(NavToken.Category);
             });
         }

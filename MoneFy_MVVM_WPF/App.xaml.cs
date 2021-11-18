@@ -40,6 +40,8 @@ namespace MoneFy_MVVM_WPF
             Container.RegisterSingleton<ITransactionService, TransactionService>();
             Container.RegisterSingleton<IAccountingService, AccountingService>();
             Container.RegisterSingleton<IMessenger, Messenger>();
+            Container.RegisterSingleton<IPieChartService, PieChartService>();
+
 
             Container.RegisterSingleton<MainViewModel>();
             Container.RegisterSingleton<HomeViewModel>();

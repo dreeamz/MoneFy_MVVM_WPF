@@ -26,6 +26,7 @@ namespace MoneFy_MVVM_WPF.Services.Home
         {
            
             homeViewModel = App.Container.GetInstance<HomeViewModel>();
+            
 
             homeViewModel.NavigationService = NS;
             homeViewModel.Messenger = IM;
@@ -45,14 +46,16 @@ namespace MoneFy_MVVM_WPF.Services.Home
             });
             homeViewModel.Messenger.Register<TransactionMessage>(homeViewModel,AccToken.Add,message =>
             {
-                homeViewModel.accountingService.Transact(message.Transaction,AccToken.Add);
+                homeViewModel.accountingService.Count(message.Transaction,AccToken.Add);
                 homeViewModel.Balance = homeViewModel.accountingService.Balance();
             });
             homeViewModel.Messenger.Register<TransactionMessage>(homeViewModel,AccToken.Substract,message =>
             {
-                homeViewModel.accountingService.Transact(message.Transaction,AccToken.Substract);
+                homeViewModel.accountingService.Count(message.Transaction,AccToken.Substract);
                 homeViewModel.Balance = homeViewModel.accountingService.Balance();
+                homeViewModel.Expenses = homeViewModel.accountingService.Expenses();
             });
+
 
             #endregion
         }

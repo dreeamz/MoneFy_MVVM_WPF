@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoneFy_MVVM_WPF", "MoneFy_MVVM_WPF\MoneFy_MVVM_WPF.csproj", "{1F72D04D-B572-4C2E-BC90-907CC3D724DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonefyTest", "MonefyTest\MonefyTest.csproj", "{7C7836BF-7D27-4ED5-A8EA-727FE39059E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonefyTest", "MonefyTest\MonefyTest.csproj", "{7C7836BF-7D27-4ED5-A8EA-727FE39059E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wpfTest", "wpfTest\wpfTest.csproj", "{BA99667D-C1ED-4F7C-B0D1-5D5E6BCFF34C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{7C7836BF-7D27-4ED5-A8EA-727FE39059E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C7836BF-7D27-4ED5-A8EA-727FE39059E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C7836BF-7D27-4ED5-A8EA-727FE39059E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA99667D-C1ED-4F7C-B0D1-5D5E6BCFF34C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA99667D-C1ED-4F7C-B0D1-5D5E6BCFF34C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA99667D-C1ED-4F7C-B0D1-5D5E6BCFF34C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA99667D-C1ED-4F7C-B0D1-5D5E6BCFF34C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

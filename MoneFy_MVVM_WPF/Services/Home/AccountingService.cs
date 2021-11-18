@@ -15,14 +15,17 @@ namespace MoneFy_MVVM_WPF.Services.Home
         {
             wallet = W;
         }
-        public void Transact(Transaction transaction, AccToken token)
+        public void Count(Transaction transaction, AccToken token)
         {
             if (token == AccToken.Add)
                 wallet.Balace += transaction.Summ;
             else
-                wallet.Balace -= transaction.Summ;            
+            {                
+                wallet.Outgoing = transaction.Summ;
+            }
         }
         public string Balance()=> wallet.Balace.ToString();
+        public string Expenses()=> wallet.Expenses.ToString();
         
     }
 }
